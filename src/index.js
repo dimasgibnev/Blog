@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import { Blog } from './Blog';
-import {  } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-	<React.StrictMode>
+	<BrowserRouter>
 		<Blog />
-	</React.StrictMode>,
+	</BrowserRouter>,
 );
