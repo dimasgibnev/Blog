@@ -1,13 +1,26 @@
-import styled from 'styled-components';
 import { Content, Footer, Header } from './components';
 import { Routes, Route } from 'react-router-dom';
+import styled from 'styled-components';
+
+const App = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 1000px;
+	min-height: 100%;
+	background-color: white;
+	margin: 0 auto;
+`;
+
+const H = styled.h2`
+	text-align: center;
+`
 
 export const Blog = () => {
 	return (
-		<>
+		<App>
 			<Header />
 			<Content>
-				<h2>Заголовок</h2>
+				<H>Заголовок</H>
 				<Routes>
 					<Route path="/" element={<div>Главная страница</div>} />
 					<Route path="/login" element={<div>Авторизация</div>} />
@@ -24,6 +37,6 @@ export const Blog = () => {
 				</Routes>
 			</Content>
 			<Footer />
-		</>
+		</App>
 	);
 };
