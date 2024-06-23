@@ -1,6 +1,7 @@
-import { getUsers } from "./get-users";
+import { getUsers } from './get-users';
 
-export 	const getUser = async (loginToFind) => {
+export const getUser = async (userLogin) => {
 	const users = await getUsers();
-	return users.find(({ userLogin }) => loginToFind === userLogin)
+
+	return users.find(({ login }) => login === userLogin);
 };

@@ -1,12 +1,21 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
-const MyButtonContainer = ({children, className}) => {
-  return (
-	<button className={className}>{children}</button>
-  )
-}
+const MyButtonContainer = ({ children, className, ...props }) => {
+	return (
+		<button className={className} {...props}>
+			{children}
+		</button>
+	);
+};
 
 export const MyButton = styled(MyButtonContainer)`
-width: 100px;
-height: 30px;
-`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 18px;
+	border: 1px solid black;
+	background-color: rgb(238, 238, 238);
+	width: ${({ width = '100%' }) => width};
+	height: 32px;
+	margin: ${({margin}) => margin}
+`;

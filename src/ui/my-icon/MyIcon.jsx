@@ -5,7 +5,23 @@ const IconContainer = ({ className, id, size, onClick }) => {
 };
 
 export const MyIcon = styled(IconContainer)`
-	margin-right: ${({ margin = '0' }) => margin};
+	margin: ${({ margin = '0' }) => margin};
 	cursor: pointer;
 	color: black;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 `;
