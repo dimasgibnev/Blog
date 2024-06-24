@@ -8,7 +8,7 @@ export const server = {
 		sessions.remove(session);
 	},
 
-	async authorize({login: authLogin, password: authPassword}) {
+	async authorize({ login: authLogin, password: authPassword }) {
 		const user = await getUser(authLogin);
 
 		if (!user) {
@@ -36,23 +36,23 @@ export const server = {
 		};
 	},
 
-	async register(regLogin, regPassword) {
-		const user = getUser(regLogin);
+	async register({ login: regLogin, password: regPassword }) {
+		const existedUser = await getUser(regLogin);
 
-		if (user) {
+		if (existedUser) {
 			return {
 				error: 'Пользователь с таким логином уже существует!',
 				res: null,
 			};
 		}
 
-		await addUser(regLogin, regPassword);
+		const user = await addUser(regLogin, regPassword);
 
 		return {
 			error: null,
 			res: {
 				id: user.id,
-				login: null,
+				login: user.login,
 				roleId: user.role_id,
 				session: sessions.create(user),
 			},
