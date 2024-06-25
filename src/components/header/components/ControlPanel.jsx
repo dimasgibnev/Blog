@@ -41,8 +41,8 @@ const ControlPanelContainer = ({ className }) => {
 					<LoginAndLogout>
 						<UserName>{login}</UserName>
 						<MyIcon
-							id={'fa-sign-out'}
-							size={'lg'}
+							id="fa-sign-out"
+							size="lg"
 							onClick={() => dispatch(logout(userSession))}
 						/>
 					</LoginAndLogout>
@@ -50,20 +50,16 @@ const ControlPanelContainer = ({ className }) => {
 			</RightAlign>
 			<RightAlign>
 				<MyIcon
-					id={'fa-backward'}
-					size={'lg'}
-					margin={'0 10px 0 0'}
+					id="fa-backward"
+					size="lg"
+					margin="0 10px 0 0"
 					onClick={() => navigate(-1)}
 				/>
 				<Link to={'/post'}>
-					<MyIcon
-						id={'fa-file-text-o'}
-						size={'lg'}
-						margin={'0 10px 0 0'}
-					></MyIcon>
+					<MyIcon id="fa-file-text-o" size="lg" margin="0 10px 0 0"></MyIcon>
 				</Link>
 				<Link to={'/users'}>
-					<MyIcon id={'fa-users'} size={'lg'} />
+					<MyIcon id="fa-users" size="lg" />
 				</Link>
 			</RightAlign>
 		</div>

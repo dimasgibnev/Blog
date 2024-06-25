@@ -1,4 +1,4 @@
-import { getWeather } from '../../../api/getWeather';
+import { getWeather } from '../../../bff/api';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
