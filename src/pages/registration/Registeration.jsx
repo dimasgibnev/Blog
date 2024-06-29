@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { MyButton, H2, MyInput } from '../../ui';
 import { server } from '../../bff';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Navigate } from 'react-router-dom';
 import { useDispatch, useSelector, useStore } from 'react-redux';

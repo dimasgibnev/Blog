@@ -4,8 +4,8 @@ import { MyIcon } from '../../../../ui';
 import styled from 'styled-components';
 import { TableRow } from '../table-row/TableRow';
 
-const UserRowContainer = ({ className, login, registeredAt, userRoleId }) => {
-	const roles = [];
+
+const UserRowContainer = ({ className, login, registeredAt, userRoleId , roles}) => {
 	const dispatch = useDispatch();
 
 	const onRoleChange = () => {};
@@ -15,11 +15,10 @@ const UserRowContainer = ({ className, login, registeredAt, userRoleId }) => {
 			<TableRow>
 				<div className="login-column">{login}</div>
 				<div className="registred-column">{registeredAt}</div>
-
 				<div className="role-column">
 					<select value={userRoleId} onChange={onRoleChange}>
 						{roles.map(({ id: roleId, name: roleName }) => (
-							<option value={roleId}>{roleName}</option>
+							<option key={roleId} value={roleId}>{roleName}</option>
 						))}
 					</select>
 					<MyIcon

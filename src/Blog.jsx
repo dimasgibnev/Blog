@@ -1,4 +1,4 @@
-import { Content, Footer, Header } from './components';
+import { Page, Footer, Header } from './components';
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { Authorization, Registration, Users } from './pages';
@@ -12,15 +12,11 @@ const App = styled.div`
 	margin: 0 auto;
 `;
 
-const H = styled.h2`
-	text-align: center;
-`;
-
 export const Blog = () => {
 	return (
 		<App>
 			<Header />
-			<Content>
+			<Page>
 				<Routes>
 					<Route path="/" element={<div>Главная страница</div>} />
 					<Route path="/login" element={<Authorization />} />
@@ -35,7 +31,7 @@ export const Blog = () => {
 						}
 					/>
 				</Routes>
-			</Content>
+			</Page>
 			<Footer />
 		</App>
 	);

@@ -4,47 +4,27 @@
       "id": "001",
       "login": "dima",
       "password": "123qwerty",
-      "registred-at": "2024-10-06",
+      "registered_at": "2024-10-06",
       "role_id": 0
-    },
-    {
-      "id": "81fd",
-      "login": "dimasgibnev",
-      "password": "123qwerty",
-      "registred-at": "2051-04-10 04:53",
-      "role_id": 2
-    },
-    {
-      "id": "9f4e",
-      "login": "rakamor",
-      "password": "123qwerty",
-      "registred-at": "2049-02-27 14:37",
-      "role_id": 2
-    },
-    {
-      "id": "0724",
-      "login": "dimasgibnev4",
-      "password": "123qwerty",
-      "registred-at": "2034-12-25 01:24",
-      "role_id": 2
     }
+
   ],
   "roles": [
     {
       "id": "0",
-      "name": "admin"
+      "name": "администратор"
     },
     {
       "id": "1",
-      "name": "moderator"
+      "name": "модератор"
     },
     {
       "id": "2",
-      "name": "reader"
+      "name": "читатель"
     },
     {
       "id": "3",
-      "name": "guest"
+      "name": "гость"
     }
   ],
   "posts": [
