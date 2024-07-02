@@ -5,7 +5,7 @@ const initialUserState = {
 	id: null,
 	login: null,
 	roleId: ROLE.GUEST,
-	session: null
+	session: null,
 };
 
 export const userReducer = (state = initialUserState, action) => {
@@ -14,6 +14,7 @@ export const userReducer = (state = initialUserState, action) => {
 			return { ...state, ...action.payload };
 		case ACTION_TYPE.LOGOUT:
 			return initialUserState;
+
 		default:
 			return state;
 	}

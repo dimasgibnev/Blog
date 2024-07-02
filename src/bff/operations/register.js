@@ -3,6 +3,7 @@ import { getUser, addUser } from '../api';
 import { generateDate } from '../utils';
 
 export const register = async ({ login: regLogin, password: regPassword }) => {
+
 	const existedUser = await getUser(regLogin);
 
 	if (existedUser) {
