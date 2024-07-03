@@ -22,11 +22,11 @@ const UserRowContainer = ({
 	};
 
 	const onRoleSave = (newRoleId) => {
-		requestServer('updateUserRole', id, newRoleId).then((res) => {
+		requestServer('updateUserRole', id,  newRoleId).then((res) => {
 			setInitialRoleId(newRoleId);
 		});
 	};
-	
+
 	const isSaveButtonDisabled = initialRoleId === selectedRole;
 
 	return (

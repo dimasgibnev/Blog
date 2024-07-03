@@ -11,7 +11,6 @@ export const updateUserRole = async (userSession, id, newRoleId) => {
 			res: null,
 		};
 	}
-
 	setUserRole(id, newRoleId);
 
 	return {
