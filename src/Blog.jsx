@@ -1,5 +1,5 @@
 import { setUser } from './store/actions';
-import { Page, Footer, Header } from './components';
+import { Page, Footer, Header, Modal } from './components';
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { Authorization, Post, Registration, Users } from './pages';
@@ -24,7 +24,7 @@ export const Blog = () => {
 			return;
 		}
 		const currentUserData = JSON.parse(currentUserDataJJON);
-		
+
 		dispatch(
 			setUser({
 				...currentUserData,
@@ -52,6 +52,7 @@ export const Blog = () => {
 				</Routes>
 			</Page>
 			<Footer />
+			<Modal />
 		</App>
 	);
 };

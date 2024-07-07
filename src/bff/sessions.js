@@ -9,13 +9,13 @@ export const sessions = {
 	},
 
 	async remove(hash) {
-		const session = await getSession(hash)
+		const session = await getSession(hash);
 
 		if (!session) {
-			return
+			return;
 		}
 
-		deleteSession(session.id)
+		deleteSession(session.id);
 	},
 
 	async access(hash, accessRoles) {
