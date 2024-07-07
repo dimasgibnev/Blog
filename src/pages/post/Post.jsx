@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { PostContent, Comments } from './components';
-import { selectPost } from '../../selectors';
+import { selectPost} from '../../selectors';
 import { useServerRequest } from '../../hooks';
 import { loadPostAsync } from '../../store/actions';
 
@@ -26,4 +26,5 @@ const PostContainer = ({ className }) => {
 };
 
 export const Post = styled(PostContainer)`
+	overflow-y: auto;
 `;

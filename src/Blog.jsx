@@ -1,7 +1,10 @@
+import { setUser } from './store/actions';
 import { Page, Footer, Header } from './components';
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { Authorization, Post, Registration, Users } from './pages';
+import { useLayoutEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 const App = styled.div`
 	display: flex;
@@ -13,6 +16,22 @@ const App = styled.div`
 `;
 
 export const Blog = () => {
+	const dispatch = useDispatch();
+	useLayoutEffect(() => {
+		const currentUserDataJJON = sessionStorage.getItem('userData');
+
+		if (!currentUserDataJJON) {
+			return;
+		}
+		const currentUserData = JSON.parse(currentUserDataJJON);
+		
+		dispatch(
+			setUser({
+				...currentUserData,
+				roleId: Number(currentUserData.roleId),
+			}),
+		);
+	}, [dispatch]);
 	return (
 		<App>
 			<Header />

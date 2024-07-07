@@ -1,5 +1,5 @@
 export * from './action-type';
-export * from './add-comment-async';
+export * from './add-comments-async';
 export * from './logout';
 export * from './load-post-async';
 export * from './set-user';

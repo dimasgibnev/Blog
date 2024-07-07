@@ -25,5 +25,5 @@ export const Footer = styled(FooterContainer)`
 	height: 120px;
 	padding: 20px 40px;
 	box-shadow: 0 2px 10px #000;
-		font-weight: bold;
+	font-weight: bold;
 `;

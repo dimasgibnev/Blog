@@ -6,6 +6,13 @@
       "password": "123qwerty",
       "registered_at": "2024-10-06",
       "role_id": 0
+    },
+    {
+      "id": "48ca",
+      "login": "rakamor",
+      "password": "123qwe",
+      "registered_at": "2051-12-30 13:47",
+      "role_id": 2
     }
   ],
   "roles": [
@@ -35,5 +42,75 @@
       "published_at": "2024-10-06"
     }
   ],
-  "comments": []
+  "comments": [
+    {
+      "id": "9fd5",
+      "author_id": "001",
+      "post_id": "001",
+      "content": "Мой первый внятный комментарий!",
+      "published_at": "2056-05-12 08:58"
+    },
+    {
+      "id": "20bf",
+      "author_id": "001",
+      "post_id": "001",
+      "content": "Мой первый внятный комментарий!",
+      "published_at": "2062-12-04 16:37"
+    },
+    {
+      "id": "f760",
+      "author_id": "001",
+      "post_id": "001",
+      "content": "dad",
+      "published_at": "2058-02-26 09:15"
+    },
+    {
+      "id": "03cb",
+      "author_id": "48ca",
+      "post_id": "001",
+      "content": "dawwd",
+      "published_at": "2047-04-02 14:08"
+    },
+    {
+      "id": "db12",
+      "author_id": "48ca",
+      "post_id": "001",
+      "content": "erfr",
+      "published_at": "2040-11-05 22:27"
+    },
+    {
+      "id": "da8d",
+      "author_id": "48ca",
+      "post_id": "001",
+      "content": "erfrerwwe",
+      "published_at": "2048-08-06 23:29"
+    },
+    {
+      "id": "d523",
+      "author_id": "48ca",
+      "post_id": "001",
+      "content": "erfrerwwee",
+      "published_at": "2041-05-18 21:46"
+    },
+    {
+      "id": "e727",
+      "author_id": "48ca",
+      "post_id": "001",
+      "content": "erfrerwwee",
+      "published_at": "2033-07-03 00:23"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "b133",
+      "hash": "0.08230315397889365058858857082668691873550415039063",
+      "user": {
+        "id": "48ca",
+        "login": "rakamor",
+        "password": "123qwe",
+        "registered_at": "2051-12-30 13:47",
+        "role_id": 2
+      }
+    }
+  ]
 }
