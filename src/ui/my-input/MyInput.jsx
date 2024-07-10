@@ -1,6 +1,5 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
-import { ref } from 'yup';
 
 const MyInputContainer = forwardRef (({ className, ...props }, ref) => {
 	return <input type="text" placeholder="Логин" className={className} {...props} ref={ref}/>;

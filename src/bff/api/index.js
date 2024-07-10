@@ -12,4 +12,5 @@ export * from './get-user';
 export * from './set-user-role';
 export * from './get-users';
 export * from './get-weather';
+export * from './update-post';
 
