@@ -6,7 +6,7 @@ const IconContainer = ({ className, id, size, onClick }) => {
 
 export const MyIcon = styled(IconContainer)`
 	margin: ${({ margin = '0' }) => margin};
-	cursor: pointer;
+	cursor: ${({isIcon}) => isIcon ? 'default': 'pointer'};
 	color: black;
 	color: ${({ disabled }) => (disabled ? '#ccc' : 'black')}
 `;
