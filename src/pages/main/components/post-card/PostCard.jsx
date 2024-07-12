@@ -57,7 +57,6 @@ export const PostCard = styled(PostCardContainer)`
 	& .post-card-footer {
 		display: flex;
 		flex-direction: column;
-		height: 20%;
 		justify-content: space-between;
 		padding: 5px;
 	}

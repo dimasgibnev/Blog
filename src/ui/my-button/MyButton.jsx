@@ -17,5 +17,6 @@ export const MyButton = styled(MyButtonContainer)`
 	background-color: rgb(238, 238, 238);
 	width: ${({ width = '100%' }) => width};
 	height: 32px;
-	margin: ${({margin}) => margin}
+	margin: ${({margin}) => margin};
+	cursor: ${({disabled}) => disabled ? 'default' : 'pointer'};
 `;
