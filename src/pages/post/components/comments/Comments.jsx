@@ -3,18 +3,20 @@ import styled from 'styled-components';
 import { Comment } from './components';
 import { MyIcon } from '../../../../ui';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserId } from '../../../../selectors';
+import { selectUserId, selectUserLogin } from '../../../../selectors';
 import { useServerRequest } from '../../../../hooks';
 import { addCommentsAsync } from '../../../../store/actions';
 
 const CommentsContainer = ({ className, comments, postId }) => {
 	const [newComment, setNewComment] = useState('');
 	const userId = useSelector(selectUserId);
+	const userLogin = useSelector(selectUserLogin);
 	const dispatch = useDispatch();
 	const requestServer = useServerRequest();
 
 	const onNewCommentAdd = (postId, userId, content) => {
-		dispatch(addCommentsAsync(requestServer, postId, userId, content));
+		dispatch(addCommentsAsync(requestServer, postId, userId, content, userLogin));
+		setNewComment('');
 	};
 
 	return (

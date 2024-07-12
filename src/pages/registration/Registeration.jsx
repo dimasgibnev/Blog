@@ -6,7 +6,7 @@ import { server } from '../../bff';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Navigate } from 'react-router-dom';
-import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { setUser } from '../../store/actions';
 import { selectUserRole } from '../../selectors';
 import { ROLE } from '../../constants/role';
