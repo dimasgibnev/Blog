@@ -20,6 +20,7 @@ const UserName = styled.div`
 
 const LoginAndLogout = styled.div`
 	display: flex;
+	align-items: center;
 `;
 
 const ControlPanelContainer = ({ className }) => {

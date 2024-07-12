@@ -15,7 +15,8 @@ export const Page = styled(PageContainer)`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	
+	min-height: 600px;
+	align-content: center;
 	margin-bottom: 20px;
-	padding: 140px 40px;
+	padding: 140px 40px 40px;
 `
