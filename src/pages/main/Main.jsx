@@ -20,6 +20,7 @@ const MainContainer = ({ className }) => {
 				setLastPage(loadedData.res.lastPage);
 			},
 		);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [requestServer, page, shouldSearch]);
 
 	const startDelayedSearch = useMemo(() => debounce(setShouldSearch, 2000), []);
@@ -61,11 +62,15 @@ const MainContainer = ({ className }) => {
 };
 
 export const Main = styled(MainContainer)`
-	width: 100%;
 	padding: 20px 10px;
+
 	& .post-list {
 		display: flex;
-		flex-wrap: wrap;
+		flex-flow: row wrap;
+		gap: 30px;
+		margin-bottom: 40px;
+		min-height: 720px;
+
 	}
 	& .no-post-found {
 		text-align: center;

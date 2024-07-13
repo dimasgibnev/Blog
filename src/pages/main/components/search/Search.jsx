@@ -18,7 +18,7 @@ export const Search = styled(SearchContainer)`
 	margin: 0 auto;
 	width: 380px;
 	height: 40px;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 
 	 .search-icon {
 		position: absolute;

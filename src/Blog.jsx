@@ -1,10 +1,11 @@
 import { setUser } from './store/actions';
-import { Page, Footer, Header, Modal } from './components';
+import { Page, Footer, Header, Modal , Error} from './components';
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { Authorization, Post, Registration, Users, Main} from './pages';
 import { useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { ERROR } from './constants';
 
 const App = styled.div`
 	display: flex;
@@ -47,7 +48,7 @@ export const Blog = () => {
 					<Route
 						path="/*"
 						element={
-							<div>Такая страница не существует или у вас нет прав</div>
+							<Error error={ERROR.PAGE_NOT_EXIST}/>
 						}
 					/>
 				</Routes>
