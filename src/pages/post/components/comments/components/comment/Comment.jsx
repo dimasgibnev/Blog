@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 import { MyIcon } from '../../../../../../ui';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useServerRequest } from '../../../../../../hooks';
 import {
 	closeModal,
 	openModal,
 	removeCommentAsync,
 } from '../../../../../../store/actions';
+import { selectUserRole } from '../../../../../../selectors';
+import { ROLE } from '../../../../../../constants';
+import { checkAccess } from '../../../../../../utils/check-access';
 
 const CommentContainer = ({ className, postId, id, author, content, publishedAt }) => {
 	const dispatch = useDispatch();
 	const requestServer = useServerRequest();
+	const roleId = useSelector(selectUserRole);
+	const isAdmin = checkAccess([ROLE.ADMIN], roleId);
 
 	const onCommentRemove = (commentId) => {
 		dispatch(
@@ -51,13 +56,15 @@ const CommentContainer = ({ className, postId, id, author, content, publishedAt 
 				</div>
 				<div className="comment-text">{content}</div>
 			</div>
-			<MyIcon
-				id="fa-trash-o"
-				size="lg"
-				onClick={() => {
-					onCommentRemove(id);
-				}}
-			/>
+			{isAdmin && (
+				<MyIcon
+					id="fa-trash-o"
+					size="lg"
+					onClick={() => {
+						onCommentRemove(id);
+					}}
+				/>
+			)}
 		</div>
 	);
 };
@@ -65,7 +72,7 @@ const CommentContainer = ({ className, postId, id, author, content, publishedAt 
 export const Comment = styled(CommentContainer)`
 	display: flex;
 	align-items: baseline;
-	width: 580px;
+	width: 600px;
 	margin-bottom: 10px;
 
 	& .comment {

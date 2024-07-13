@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMatch, useParams } from 'react-router-dom';
 import { PostContent, Comments, PostForm } from './components';
-import { selectPost } from '../../selectors';
+import { selectPost, selectUserRole } from '../../selectors';
 import { useServerRequest } from '../../hooks';
 import { loadPostAsync } from '../../store/actions';
 import { RESET_POST_DATA } from '../../store/actions/reset-post-data';
@@ -19,6 +19,7 @@ const PostContainer = ({ className }) => {
 	const isEditing = !!useMatch('/post/:postId/edit');
 	const requestServer = useServerRequest();
 	const post = useSelector(selectPost);
+
 
 	useLayoutEffect(() => {
 		dispatch(RESET_POST_DATA);
@@ -40,6 +41,8 @@ const PostContainer = ({ className }) => {
 		return null;
 	}
 
+
+
 	const SpecificPostPage =
 		isEditing || isCreating ? (
 			<PrivateContent access={[ROLE.ADMIN]} serverError={error}>
@@ -50,7 +53,7 @@ const PostContainer = ({ className }) => {
 		) : (
 			<div className={className}>
 				<PostContent post={post} />
-				<Comments comments={post.comments} postId={post.id} />
+				 <Comments comments={post.comments} postId={post.id} />
 			</div>
 		);
 

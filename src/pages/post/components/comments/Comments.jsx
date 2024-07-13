@@ -3,37 +3,42 @@ import styled from 'styled-components';
 import { Comment } from './components';
 import { MyIcon } from '../../../../ui';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserId, selectUserLogin } from '../../../../selectors';
+import { selectUserId, selectUserRole } from '../../../../selectors';
 import { useServerRequest } from '../../../../hooks';
 import { addCommentsAsync } from '../../../../store/actions';
+import { ROLE } from '../../../../constants';
 
 const CommentsContainer = ({ className, comments, postId }) => {
 	const [newComment, setNewComment] = useState('');
 	const userId = useSelector(selectUserId);
-	const userLogin = useSelector(selectUserLogin);
 	const dispatch = useDispatch();
 	const requestServer = useServerRequest();
+	const userRole = useSelector(selectUserRole);
 
 	const onNewCommentAdd = (postId, userId, content) => {
-		dispatch(addCommentsAsync(requestServer, postId, userId, content, userLogin));
+		dispatch(addCommentsAsync(requestServer, postId, userId, content));
 		setNewComment('');
 	};
+	
+	const isGuest = userRole === ROLE.GUEST;
 
 	return (
 		<div className={className}>
-			<div className="new-comment">
-				<textarea
-					name="comment"
-					value={newComment}
-					placeholder="комментарий..."
-					onChange={({ target }) => setNewComment(target.value)}
-				></textarea>
-				<MyIcon
-					id={'fa-paper-plane-o'}
-					margin="0 0 0 10px"
-					onClick={() => onNewCommentAdd(postId, userId, newComment)}
-				/>
-			</div>
+			{!isGuest && (
+				<div className="new-comment">
+					<textarea
+						name="comment"
+						value={newComment}
+						placeholder="комментарий..."
+						onChange={({ target }) => setNewComment(target.value)}
+					></textarea>
+					<MyIcon
+						id={'fa-paper-plane-o'}
+						margin="0 0 0 10px"
+						onClick={() => onNewCommentAdd(postId, userId, newComment)}
+					/>
+				</div>
+			)}
 			<div className="comments">
 				{comments.map(({ id, author, content, publishedAt }) => (
 					<Comment
@@ -52,7 +57,7 @@ const CommentsContainer = ({ className, comments, postId }) => {
 
 export const Comments = styled(CommentsContainer)`
 	margin: 0 auto;
-	width: 580px;
+	width: 600px;
 
 	& .new-comment {
 		width: 100%;

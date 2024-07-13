@@ -5,6 +5,7 @@ import { ROLE } from '../../../constants/role';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserLogin, selectUserRole, selectUserSession } from '../../../selectors';
 import { logout } from '../../../store/actions';
+import { checkAccess } from '../../../utils/check-access';
 
 const RightAlign = styled.div`
 	display: flex;
@@ -32,10 +33,12 @@ const ControlPanelContainer = ({ className }) => {
 	const dispatch = useDispatch();
 
 	const onLogout = () => {
-		sessionStorage.removeItem('userData')
-		dispatch(logout(userSession))
+		sessionStorage.removeItem('userData');
+		dispatch(logout(userSession));
+	};
 
-	}
+	const isAdmin = checkAccess([ROLE.ADMIN], roleId);
+
 	return (
 		<div className={className}>
 			<RightAlign>
@@ -46,11 +49,7 @@ const ControlPanelContainer = ({ className }) => {
 				) : (
 					<LoginAndLogout>
 						<UserName>{login}</UserName>
-						<MyIcon
-							id="fa-sign-out"
-							size="lg"
-							onClick={onLogout }
-						/>
+						<MyIcon id="fa-sign-out" size="lg" onClick={onLogout} />
 					</LoginAndLogout>
 				)}
 			</RightAlign>
@@ -61,12 +60,20 @@ const ControlPanelContainer = ({ className }) => {
 					margin="0 10px 0 0"
 					onClick={() => navigate(-1)}
 				/>
-				<Link to={'/post'}>
-					<MyIcon id="fa-file-text-o" size="lg" margin="0 10px 0 0"></MyIcon>
-				</Link>
-				<Link to={'/users'}>
-					<MyIcon id="fa-users" size="lg" />
-				</Link>
+				{isAdmin && (
+					<>
+						<Link to={'/post'}>
+							<MyIcon
+								id="fa-file-text-o"
+								size="lg"
+								margin="0 10px 0 0"
+							></MyIcon>
+						</Link>
+						<Link to={'/users'}>
+							<MyIcon id="fa-users" size="lg" />
+						</Link>
+					</>
+				)}
 			</RightAlign>
 		</div>
 	);

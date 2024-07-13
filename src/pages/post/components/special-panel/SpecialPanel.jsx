@@ -1,15 +1,19 @@
-import React from 'react';
 import { MyIcon } from '../../../../ui';
-import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { closeModal, openModal, removePostAsync } from '../../../../store/actions';
 import { useServerRequest } from '../../../../hooks';
 import { useNavigate } from 'react-router-dom';
+import { selectUserRole } from '../../../../selectors';
+import { checkAccess } from '../../../../utils/check-access';
+import { ROLE } from '../../../../constants';
+import styled from 'styled-components';
 
 const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
 	const dispatch = useDispatch();
 	const requestServer = useServerRequest();
 	const navigate = useNavigate();
+	const roleId = useSelector(selectUserRole);
+	const isAdminOrModarator = checkAccess([ROLE.ADMIN, ROLE.MODERATOR], roleId);
 
 	const onPostRemove = (postId) => {
 		dispatch(
@@ -30,17 +34,23 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
 	return (
 		<div className={className}>
 			<div className="published-at">
-				{publishedAt && <MyIcon id={'fa-calendar-o'} margin="0 10px 0 0"  isIcon={true} />}
+				{publishedAt && (
+					<MyIcon id={'fa-calendar-o'} margin="0 10px 0 0" isIcon={true} />
+				)}
 				{publishedAt}
 			</div>
 			<div className="buttons">
-				{editButton}
-				{publishedAt && (
-					<MyIcon
-						id={'fa-trash-o'}
-						margin="0  0 0 10px"
-						onClick={() => onPostRemove(id)}
-					/>
+				{isAdminOrModarator && (
+					<>
+						{editButton}
+						{publishedAt && (
+							<MyIcon
+								id={'fa-trash-o'}
+								margin="0  0 0 10px"
+								onClick={() => onPostRemove(id)}
+							/>
+						)}
+					</>
 				)}
 			</div>
 		</div>
