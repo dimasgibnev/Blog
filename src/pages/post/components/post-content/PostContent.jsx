@@ -1,14 +1,14 @@
-import styled from 'styled-components';
 import { H2, MyIcon } from '../../../../ui';
 import { SpecialPanel } from '../special-panel/SpecialPanel';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { PROP_TYPE } from '../../../../constants';
 
 const PostContentContainer = ({
 	className,
 	post: { id, imageUrl, title, publishedAt, content },
 }) => {
 	const navigate = useNavigate();
-
 
 	return (
 		<div className={className}>
@@ -45,3 +45,7 @@ export const PostContent = styled(PostContentContainer)`
 		font-size: 22px;
 	}
 `;
+
+PostContent.propTypes = {
+	post: PROP_TYPE.POST.isRequired,
+};

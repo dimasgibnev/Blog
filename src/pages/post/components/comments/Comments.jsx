@@ -1,12 +1,13 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
-import styled from 'styled-components';
 import { Comment } from './components';
 import { MyIcon } from '../../../../ui';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserId, selectUserRole } from '../../../../selectors';
 import { useServerRequest } from '../../../../hooks';
 import { addCommentsAsync } from '../../../../store/actions';
-import { ROLE } from '../../../../constants';
+import { PROP_TYPE, ROLE } from '../../../../constants';
+import styled from 'styled-components';
 
 const CommentsContainer = ({ className, comments, postId }) => {
 	const [newComment, setNewComment] = useState('');
@@ -19,7 +20,7 @@ const CommentsContainer = ({ className, comments, postId }) => {
 		dispatch(addCommentsAsync(requestServer, postId, userId, content));
 		setNewComment('');
 	};
-	
+
 	const isGuest = userRole === ROLE.GUEST;
 
 	return (
@@ -73,3 +74,7 @@ export const Comments = styled(CommentsContainer)`
 		padding: 5px 10px;
 	}
 `;
+Comments.propTypes = {
+	comments: PROP_TYPE.COMMENT,
+	postId: PropTypes.string.isRequired
+};

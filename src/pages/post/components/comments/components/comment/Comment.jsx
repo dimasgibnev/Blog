@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { MyIcon } from '../../../../../../ui';
 import { useDispatch, useSelector } from 'react-redux';
 import { useServerRequest } from '../../../../../../hooks';
+import styled from 'styled-components';
 import {
 	closeModal,
 	openModal,
@@ -94,3 +95,10 @@ export const Comment = styled(CommentContainer)`
 		display: flex;
 	}
 `;
+Comment.propTypes = {
+	postId: PropTypes.string.isRequired,
+	id: PropTypes.string.isRequired,
+	author: PropTypes.string.isRequired,
+	content: PropTypes.string.isRequired,
+	publishedAt: PropTypes.string.isRequired,
+};

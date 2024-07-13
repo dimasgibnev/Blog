@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import PropTypes from 'prop-types'
 import { MyIcon } from '../../../../ui';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Image = styled.img`
 	width: 100%;
@@ -65,3 +66,12 @@ export const PostCard = styled(PostCardContainer)`
 		padding: 5px;
 	}
 `;
+
+PostCard.propTypes = {
+	id: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+	publishedAt: PropTypes.string.isRequired,
+	commentsCount: PropTypes.array.isRequired,
+	imageUrl: PropTypes.string.isRequired,
+
+}

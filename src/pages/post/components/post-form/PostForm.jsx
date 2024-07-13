@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { MyIcon, MyInput } from '../../../../ui';
 import { SpecialPanel } from '../special-panel/SpecialPanel';
 import { useLayoutEffect, useRef, useState } from 'react';
@@ -7,6 +6,8 @@ import { useDispatch } from 'react-redux';
 import { useServerRequest } from '../../../../hooks';
 import { savePostAsync } from '../../../../store/actions';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { PROP_TYPE } from '../../../../constants';
 
 const PostFormContainer = ({
 	className,
@@ -82,3 +83,7 @@ export const PostForm = styled(PostFormContainer)`
 		font-size: 22px;
 	}
 `;
+
+PostForm.propTypes = {
+	post: PROP_TYPE.POST.isRequired
+}

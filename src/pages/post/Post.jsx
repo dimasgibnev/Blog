@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMatch, useParams } from 'react-router-dom';
 import { PostContent, Comments, PostForm } from './components';
-import { selectPost, selectUserRole } from '../../selectors';
+import { selectPost } from '../../selectors';
 import { useServerRequest } from '../../hooks';
 import { loadPostAsync } from '../../store/actions';
 import { RESET_POST_DATA } from '../../store/actions/reset-post-data';
